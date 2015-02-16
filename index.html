@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	{block:Description}
+		<meta name="description" content="{MetaDescription}" />
+	{/block:Description}
+	
+	<title>{block:TagPage} {Tag} - {/block:TagPage} {block:SearchPage} {lang:Search results for SearchQuery} - {/block:SearchPage} {block:PostSummary} {PostSummary} - {/block:PostSummary} {Title}</title>
+
+	<link rel="shortcut icon" href="{Favicon}" />
+	<link rel="alternate" type="application/rss+xml" tile="{Title} RSS" href="{RSS}" />
+	<link rel="stylesheet" href="http://static.tumblr.com/hznqxps/ivOmgjf8v/normalize.css" />
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+
+	<!-- META Customization -->
+
+	<meta name="color:Background color" content="#f2f2f2" />
+	<meta name="font:Body font" content="Arial,Helvetica, sans-serif"/>
+	<meta name="if:Center body" content="0" />
+
+	<meta name="color:Links" content="#979395" />
+	<meta name="text:Twitter Username" content="" />
+	<meta name="font:Body" content="Arial, Helvetica, sans-serif"/>
+	<meta name="image:Background image" content=""/>
+	<meta name="if:Show Twitter" content="0" />
+	
+	<!-- How to do a customization meta:
+		type of metas:
+			-> 	color:	Color picker
+			-> 	font:	Font picker
+			-> 	image:	Image picker
+			-> 	if:		Conditional
+
+	<meta name="type:Name" content="defaultContent" or content="1" for off and content="0"	/>
+
+	-->
+	
+
+
+	<style>
+
+
+	/* How to apply a conditional META
+
+		
+	{block:MetaNameWithNoSpaces}
+		element {
+			property:value;
+		}
+	{/block:MetaNameWithNoSpaces}	
+
+	*/
+    a {
+        color:{color:Links};
+    }
+
+    {block:IfCenterBody}
+    body {
+        width:60%;
+        margin:0 auto;
+    }
+    {/block:IfCenterBody}
+    }
+
+	/* How to apply color, font, image META
+
+	element {
+		background: {type:Value};
+	} 
+
+	*/
+
+	body {
+		background: {color:Background color} url('{image:Background}') repeat;
+		font-family: {font:Body}		
+	}
+
+	/* Custom CSS */
+
+	{CustomCSS}
+	</style>
+	
+</head>
+<body>
+
+<header class="Header">
+	<img src="{PortraitURL-128}" />
+	<h1><a href="/" title="{lang:Home}">{Title}</a></h1>
+</header>
+
+<aside class="Menu">
+	{block:Description}
+		<div class="Description">
+			<p>{Description}</p>
+		</div>
+	{/block:Description}
+
+	<nav>
+		<ul>
+			{block:HasPages}
+				{block:Pages}
+					<li><a href="{URL}">{Label}</a></li>
+				{/block:Pages}
+			{/block:HasPages}
+			{block:SubmissionsEnabled}
+		    	<li> <a href="/submit">{SubmitLabel}</a></li>
+		    {/block:SubmissionsEnabled}
+			{block:AskEnabled}
+				<li><a href="/ask">{AskLabel}</a></li>
+			{/block:AskEnabled}	
+			{block:IfShowTwitter}
+			<a href="http://twitter.com/{text:Twitter Username}">Follow me on twitter!</a>
+			{/block:IfShowTwitter}
+		</ul>
+	</nav>
+</aside>
+
+<div class="wrapper">
+
+	{block:Posts}
+		<article class="Post">
+			
+		{block:Text}
+
+		<div class="Text-inner inner">
+			
+			{block:Title}
+				<h2 class="Post-title"><a href="{Permalink}">{Title}</a></h2>
+			{/block:Title}
+			
+			{Body}	
+
+		{/block:Text}
+
+		{block:Photo}
+
+		<div class="Photo-inner inner">
+			
+			{LinkOpenTag}<img src="{PhotoURL-HighRes}" alt="{PhotoAld}" />{LinkCloseTag}
+
+			{block:Caption} {Caption} {/block:Caption}
+
+		{/block:Photo}
+
+		{block:Photoset}
+
+		<div class="Photoset-inner inner">
+
+			{Photoset-700}
+
+			{block:Caption} {Caption} {/block:Caption}	
+
+		{/block:Photoset}
+
+		{block:Quote}
+
+		<div class="Quote-inner inner">
+
+			<blockquote>{Quote}</blockquote>
+
+			{block:Source}<cite> {Source} </cite> {/block:Source}
+
+		{/block:Quote}
+
+		{block:Link}
+
+		<div class="Link-inner inner">
+
+			<h2 class="Post-title"><a href="{URL}">{Name}</a></h2>
+
+			{block:Description} {Description} {/block:Description}
+
+		{/block:Link}
+
+		{block:Chat}
+
+		<div class="Chat-inner inner">
+
+			<ul>
+				{block:Lines}<li class="{Alt}"><p>{block:Label}<strong>{Label}</strong>{/block:Label} {Line} </p>{/block:Lines}
+			</ul>
+
+		{/block:Chat}
+
+		{block:Audio}
+
+			<div class="Audio-inner inner">
+				{block:TrackName}
+					<h2 class="Post-title"><a href="{Permalink}">{TrackName}</a></h1>
+				{/block:TrackName}
+				{block:AlbumArt}<img src="{AlbumArtUrl}" />{block:AlbumArt}
+				{AudioPlayerBlack}
+				<!-- {AudioPlayerWhite} -->
+				{block:Caption} {Caption} {/block:Caption}
+
+		{/block:Audio}
+
+		{block:Video}
+
+			<div class="Video-inner inner">
+
+				{Video-700}
+				{block:Caption}{Caption}{/block:Caption}
+
+		{/block:Video}
+
+		{block:Answer}
+
+			<div class="Answer-inner inner">
+
+				<h2 class="Post-title">{Question}</h2>
+
+				<div class="User">
+					<img src="{AsketPortraitURL-96}" />
+					<p>{Asker}</p>
+				</div>
+
+				{Answer}
+
+		{/block:Answer}
+
+		</div>
+		
+		{block:Date}
+			<footer class="Footer">
+				
+				<div class="Footer-heart">{LikeButton}</div>
+
+				<div class="Footer-reblog">{ReblogButton}</div>
+
+				{block:NoteCount}
+
+					<a href="{Permalink}" class="Note-count"> {NoteCountWithLabel} </a> /
+
+				{/block:NoteCount}
+
+				<a href="{Permalink}" class="Number-date">{TimeAgo}</a>	
+				
+				{block:PermalinkPage}
+					
+					{block:ContentSource}
+						<div class="Source">
+							<a href="{SourceURL}">{lang:Source} : {block:NoSourceLogo}{SourceTitle}{/block:NoSourceLogo}{block:SourceLogo}<img src="{BlackLogoURL}" width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />{/block:SourceLogo}</a>
+						</div>
+					{/block:ContentSource}
+
+					{block:HasTags}
+
+						<ul class="Tags">
+							{block:Tags}<li><a href="{TagURL}">{Tag}</a></li>{/block:Tags}
+						</ul>
+
+					{/block:HasTags}
+
+					{block:PostNotes}
+						<div class="Notes">
+							{PostNotes}
+						</div>
+					{/block:PostNotes}	
+					
+
+				{/block:PermalinkPage}
+
+			</footer>
+		{/block:Date}
+		</article>
+	{/block:Posts}
+	{block:Pagination}
+	    <nav id="pagination">
+	        <ul>
+	            {block:NextPage}<li><a href="{NextPage}">Next page</a></li>{/block:NextPage}
+	            {block:PreviousPage}<li><a href="{PreviousPage}">Previous page</a></li>{/block:PreviousPage}
+	        </ul>
+	    </nav>
+	{/block:Pagination}
+
+</div>
+
+
+
+</body>
+</html>
