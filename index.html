@@ -5,281 +5,711 @@
 	{block:Description}
 		<meta name="description" content="{MetaDescription}" />
 	{/block:Description}
-	
-	<title>{block:TagPage} {Tag} - {/block:TagPage} {block:SearchPage} {lang:Search results for SearchQuery} - {/block:SearchPage} {block:PostSummary} {PostSummary} - {/block:PostSummary} {Title}</title>
 
-	<link rel="shortcut icon" href="{Favicon}" />
-	<link rel="alternate" type="application/rss+xml" tile="{Title} RSS" href="{RSS}" />
-	<link rel="stylesheet" href="http://static.tumblr.com/hznqxps/ivOmgjf8v/normalize.css" />
+	<title>{block:TagPage} {Tag} - {/block:TagPage} {block:SearchPage} {lang:Search results for SearchQuery} - {/block:SearchPage} {block:PostSummary} {PostSummary} - {/block:PostSummary} {Title}</title>
 
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-
-
-	<!-- META Customization -->
-
-	<meta name="color:Background color" content="#f2f2f2" />
-	<meta name="font:Body font" content="Arial,Helvetica, sans-serif"/>
-	<meta name="if:Center body" content="0" />
-
-	<meta name="color:Links" content="#979395" />
-	<meta name="text:Twitter Username" content="" />
-	<meta name="font:Body" content="Arial, Helvetica, sans-serif"/>
-	<meta name="image:Background image" content=""/>
-	<meta name="if:Show Twitter" content="0" />
-	
-	<!-- How to do a customization meta:
-		type of metas:
-			-> 	color:	Color picker
-			-> 	font:	Font picker
-			-> 	image:	Image picker
-			-> 	if:		Conditional
-
-	<meta name="type:Name" content="defaultContent" or content="1" for off and content="0"	/>
-
-	-->
-	
-
+	<link rel="shortcut icon" href="{Favicon}" />
+	<link rel="alternate" type="application/rss+xml" tile="{Title} RSS" href="{RSS}" />
+	<link rel="stylesheet" href="http://static.tumblr.com/hznqxps/ivOmgjf8v/normalize.css" />
 
 	<style>
 
+	/* This blog is built following the BEM methodology. Find out more here:
 
-	/* How to apply a conditional META
-
-		
-	{block:MetaNameWithNoSpaces}
-		element {
-			property:value;
-		}
-	{/block:MetaNameWithNoSpaces}	
-
-	*/
-    a {
-        color:{color:Links};
-    }
-
-    {block:IfCenterBody}
-    body {
-        width:60%;
-        margin:0 auto;
-    }
-    {/block:IfCenterBody}
-    }
-
-	/* How to apply color, font, image META
-
-	element {
-		background: {type:Value};
-	} 
-
-	*/
-
-	body {
-		background: {color:Background color} url('{image:Background}') repeat;
-		font-family: {font:Body}		
-	}
+		https://en.bem.info/method/
+		http://www.smashingmagazine.com/2012/04/16/a-new-front-end-methodology-bem/
+		http://www.smashingmagazine.com/2014/07/17/bem-methodology-for-small-projects/
+ 	
+ 	*/
 
 	/* Custom CSS */
 
 	{CustomCSS}
+
+	/*End of Custom CSS */
 	</style>
 	
 </head>
 <body>
 
-<header class="Header">
-	<img src="{PortraitURL-128}" />
-	<h1><a href="/" title="{lang:Home}">{Title}</a></h1>
+<!-- Begin Blog Header -->
+<header class="Blog__Header">
+
+	<div class="Blog__Header__Container">
+
+		<div class="Blog__Header__Portrait__Wrapper">
+			
+			<img class="Blog__Header__Portrait__Img" src="{PortraitURL-128}" />
+
+		</div>
+
+		<div class="Blog__Header__Title__Wrapper">
+			
+			<h1 class="Blog__Header__Title">
+
+				<a class="Blog__Header__Link" href="/" title="{lang:Home}">
+			
+					{Title}
+
+				</a>
+		
+			</h1>
+
+		</div>
+
+		{block:Description}
+
+			<div class="Blog__Header__Description__Wrapper">
+
+				<p class="Blog__Header__Description__Text">{Description}</p>
+
+			</div>
+
+		{/block:Description}
+
+	</div>
+
 </header>
 
-<aside class="Menu">
-	{block:Description}
-		<div class="Description">
-			<p>{Description}</p>
-		</div>
-	{/block:Description}
+<!-- End Blog Header -->
 
-	<nav>
-		<ul>
+
+<!-- Begin Blog Menu -->
+
+<aside class="Blog__Menu">
+
+	<nav class="Blog__Menu__Nav">
+
+		<ul class="Blog__Menu__Nav__List">
+
 			{block:HasPages}
+
 				{block:Pages}
-					<li><a href="{URL}">{Label}</a></li>
+
+					<li class="Blog__Menu__Nav__Item">
+
+						<a class="Blog__Menu__Nav__Item_Anchor" href="{URL}">
+
+							{Label}
+
+						</a>
+
+					</li>
+
 				{/block:Pages}
+
 			{/block:HasPages}
+
 			{block:SubmissionsEnabled}
-		    	<li> <a href="/submit">{SubmitLabel}</a></li>
+
+		    	<li class="Blog__Menu__Nav__Item Blog__Menu__Nav__Item--Submit">
+
+		    		<a class="Blog__Menu__Nav__Item_Anchor" href="/submit">
+
+		    			{SubmitLabel}
+
+		    		</a>
+
+				</li>
+
 		    {/block:SubmissionsEnabled}
+
 			{block:AskEnabled}
-				<li><a href="/ask">{AskLabel}</a></li>
+
+				<li class="Blog__Menu__Nav__Item Blog__Menu__Nav__Item--Ask">
+
+					<a class="Blog__Menu__Nav__Item_Anchor" href="/ask">
+
+						{AskLabel}
+
+					</a>
+
+				</li>
+
 			{/block:AskEnabled}	
-			{block:IfShowTwitter}
-			<a href="http://twitter.com/{text:Twitter Username}">Follow me on twitter!</a>
-			{/block:IfShowTwitter}
+
 		</ul>
+
 	</nav>
+
 </aside>
 
-<div class="wrapper">
+<!-- End Blog Menu -->
+
+<!-- Begin Posts Wrapper -->
+
+<div class="Blog__Posts__Wrapper">
 
 	{block:Posts}
+
+		<!-- Begin Blog Post -->
 		<article class="Post">
 			
-		{block:Text}
+			{block:Text}
 
-		<div class="Text-inner inner">
-			
-			{block:Title}
-				<h2 class="Post-title"><a href="{Permalink}">{Title}</a></h2>
-			{/block:Title}
-			
-			{Body}	
+			<!-- Begin Text Post -->
 
-		{/block:Text}
+			<div class="Post__Text">
+				
+				<div class="Post__Text__Wrapper">
+					
+					{block:Title}
 
-		{block:Photo}
+						<h2 class="Post__Text__Title">
 
-		<div class="Photo-inner inner">
-			
-			{LinkOpenTag}<img src="{PhotoURL-HighRes}" alt="{PhotoAld}" />{LinkCloseTag}
+							<a class="Post__Text__Title__Anchor" href="{Permalink}">{Title}</a>
+							
+						</h2>
+					
+					{/block:Title}
+				
+					<div class="Post__Text__Body">
+						
+						{Body}
 
-			{block:Caption} {Caption} {/block:Caption}
+					</div>
 
-		{/block:Photo}
-
-		{block:Photoset}
-
-		<div class="Photoset-inner inner">
-
-			{Photoset-700}
-
-			{block:Caption} {Caption} {/block:Caption}	
-
-		{/block:Photoset}
-
-		{block:Quote}
-
-		<div class="Quote-inner inner">
-
-			<blockquote>{Quote}</blockquote>
-
-			{block:Source}<cite> {Source} </cite> {/block:Source}
-
-		{/block:Quote}
-
-		{block:Link}
-
-		<div class="Link-inner inner">
-
-			<h2 class="Post-title"><a href="{URL}">{Name}</a></h2>
-
-			{block:Description} {Description} {/block:Description}
-
-		{/block:Link}
-
-		{block:Chat}
-
-		<div class="Chat-inner inner">
-
-			<ul>
-				{block:Lines}<li class="{Alt}"><p>{block:Label}<strong>{Label}</strong>{/block:Label} {Line} </p>{/block:Lines}
-			</ul>
-
-		{/block:Chat}
-
-		{block:Audio}
-
-			<div class="Audio-inner inner">
-				{block:TrackName}
-					<h2 class="Post-title"><a href="{Permalink}">{TrackName}</a></h1>
-				{/block:TrackName}
-				{block:AlbumArt}<img src="{AlbumArtUrl}" />{block:AlbumArt}
-				{AudioPlayerBlack}
-				<!-- {AudioPlayerWhite} -->
-				{block:Caption} {Caption} {/block:Caption}
-
-		{/block:Audio}
-
-		{block:Video}
-
-			<div class="Video-inner inner">
-
-				{Video-700}
-				{block:Caption}{Caption}{/block:Caption}
-
-		{/block:Video}
-
-		{block:Answer}
-
-			<div class="Answer-inner inner">
-
-				<h2 class="Post-title">{Question}</h2>
-
-				<div class="User">
-					<img src="{AsketPortraitURL-96}" />
-					<p>{Asker}</p>
 				</div>
 
-				{Answer}
+			{/block:Text}
 
-		{/block:Answer}
+			{block:Photo}
 
-		</div>
+			<!-- Begin Photo Post -->
+
+			<div class="Post__Photo">
+				
+				<div class="Post__Photo__Media">
+
+					{LinkOpenTag}
+						
+						<img class="Post__Photo__Media__Img" src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+
+
+					{LinkCloseTag}
+
+				</div>
+
+				{block:Caption}
+
+					<div class="Post__Photo__Wrapper">
+						
+						<div class="Post__Photo__Caption">
+
+							{Caption}
+					
+						</div>	
+
+					</div>
+
+				{/block:Caption}
+			
+			{/block:Photo}
+
+			{block:Photoset}
+
+			<!-- Begin Photoset Post -->
+
+			<div class="Post__Photoset">
+
+				<div class="Post__Photoset__Media">
+
+					{block:Photos}
+            			
+            			<a class="Post__Photoset__Img__Anchor" href="{Permalink}">
+
+            				<img class="Post__Photoset__Img" src="{PhotoURL-HighRes}">
+
+            			</a>
+						
+        			{/block:Photos}
+
+				</div>
+
+				{block:Caption} 
+
+					<div class="Post__Photoset__Wrapper">
+
+						<div class="Post_Photoset__Caption">
+							
+							{Caption}
+
+						</div>
+
+					</div>	
+
+				{/block:Caption}
+
+			{/block:Photoset}
+
+			{block:Quote}
+
+			<!-- Begin Quote Post -->
+
+			<div class="Post__Quote">
+
+				<div class="Post__Quote__Wrapper">
+					
+					<blockquote class="Post__Quote__Blockquote">
+
+						{Quote}
+
+					</blockquote>
+
+					{block:Source}
+
+						<div class="Post__Quote__Source">
+
+							<cite class="Post__Quote__Source__Cite"> 
+
+								{Source} 
+
+							</cite>
+
+						</div>	 
+
+					{/block:Source}
+
+				</div>
+
+			{/block:Quote}
+
+			{block:Link}
+
+			<!-- Begin Link Post -->
+
+			<div class="Post__Link">
+
+				<div class="Post__Link__Wrapper">
+					
+					<h2 class="Post__Link__Title">
+
+						<a class="Post__Link__Anchor" href="{URL}">
+
+							{Name}
+
+						</a>
+
+					</h2>
+
+					{block:Description} 
+
+						<div class="Post__Link__Description">
+
+							{Description}
+
+						</div>
+
+					 {/block:Description}
+
+				</div>
+
+			{/block:Link}
+
+			{block:Chat}
+
+			<!-- Begin Chat Post -->
+
+			<div class="Post__Chat">
+
+				<div class="Post__Chat__Wrapper">
+
+					<h2 class="Post__Chat__Title">
+						
+						<a class="Post__Chat__Title__Anchor" href="{Permalink}">
+
+							{Title}
+
+						</a>
+
+					</h2>
+					
+					<ul class="Post__Chat__List">
+						
+						{block:Lines}
+
+							<li class="{Alt} Post__Chat__List__Item">
+
+								<p class="Post__Chat__List__Text">
+									
+									{block:Label}
+									
+										<strong class="Post__Chat__List__Label">
+
+											{Label}
+										
+										</strong>
+									
+									{/block:Label} 
+									
+									<span class="Post__Chat__List__Line">
+
+										{Line}
+
+									</span>	
+
+								</p>
+
+							</li>	
+
+						{/block:Lines}
+
+					</ul>
+
+				</div>
+
+			{/block:Chat}
+
+			{block:Audio}
+
+			<!-- Begin Audio Post -->
+
+			<div class="Post__Audio">
+
+
+				<div class="Post__Audio__Media">
+
+					{block:TrackName}
+
+						<div class="Post__Audio__Track-Name">
+								
+							<h2 class="Post__Audio__Title">
+
+								<a class="Post__Audio__Anchor" href="{Permalink}">
+
+									{TrackName}
+									
+								</a>
+
+							</h2>
+
+						</div>
+
+					{/block:TrackName}
+					
+					<div class="Post__Audio__Album-Art">
+							
+						{block:AlbumArt}
+
+							<img class="Post__Audio__Album-Art__Image" src="{AlbumArtUrl}" />
+
+						{block:AlbumArt}
+
+					</div>
+
+					<div class="Post__Audio__Audio-Player">
+							
+						{AudioPlayerBlack}
+						<!-- {AudioPlayerWhite} -->
+
+					</div>
+						
+
+				</div>
+
+				<div class="Post__Audio__Wrapper">
+					
+					{block:Caption} 
+
+						<div class="Post__Audio__Caption">
+
+							{Caption} 
+							
+						</div>
+							
+					{/block:Caption}
+						
+				</div>
+
+			{/block:Audio}
+
+			{block:Video}
+
+			<!-- Begin Video Post -->
+
+			<div class="Post__Video">
+
+				<div class="Post__Video__Media">
+
+					{Video-700}
+
+				</div>
+					
+
+				<div class="Post__Video__Wrapper">
+						
+					{block:Caption}
+							
+						<div class="Post__Video__Caption">
+							
+								{Caption}
+
+						</div>	
+
+					{/block:Caption}
+
+				</div>
+
+			{/block:Video}
+
+			{block:Answer}
+
+			<!-- Begin Answer Post -->
+
+			<div class="Post__Ask">
+
+				<div class="Post__Ask__Wrapper">
+						
+					<div class="Post__Ask__Question__Wrapper">
+						
+						<p class="Post__Ask__Question__Text">
+								
+							{Question}
+
+						</p>
+
+					</div>
+
+					<div class="Post__Ask__Answer__Wrapper">
+							
+						<div class="Post__Ask__Answer__Portrait">
+
+							<img class="Post__Ask__Answer__Portrait__Image" src="{AskerPortraitURL-96}" />
+
+						</div>
+
+						<div class="Post__Ask__Answer__User">
+								
+							<p class="Post__Ask__Answer__User__Text">
+
+								{Asker}
+
+							</p>
+
+						</div>
+
+							<div class="Post__Ask__Answer__Response">
+								
+										{Answer}
+
+							</div>
+						
+						</div>
+
+						
+
+					</div>
+
+			{/block:Answer}
+
+			
+			{block:Date}
+
+				<!-- Begin Footer -->
+
+				<footer class="Post__Footer">
+
+					<!-- Begin Home Page Footer -->
+					
+					<div class="Post__Footer__Wrapper">
+						
+						<div class="Post__Footer__Buttons">
+							
+							<div class="Post__Footer__Like">
+
+								{LikeButton}
+
+							</div>
+
+							<div class="Post__Footer__Reblog">
+
+								{ReblogButton}
+
+							</div>
+
+						</div>
+
+						<div class="Post__Footer__Notes-and-Date">
+							
+							{block:NoteCount}
+							
+								<a href="{Permalink}" class="Post__Footer__Notes-and-Date__Notes-Anchor">
+
+								 {NoteCountWithLabel} 
+
+								</a> /
+
+							{/block:NoteCount}
+
+							<a href="{Permalink}" class="Post__Footer__Notes-and-Date__Date-Anchor">
+
+								{TimeAgo}
+
+							</a>	
+
+						</div>
+
+					</div>
+
+					<!-- End Home Page Footer -->
 		
-		{block:Date}
-			<footer class="Footer">
-				
-				<div class="Footer-heart">{LikeButton}</div>
-
-				<div class="Footer-reblog">{ReblogButton}</div>
-
-				{block:NoteCount}
-
-					<a href="{Permalink}" class="Note-count"> {NoteCountWithLabel} </a> /
-
-				{/block:NoteCount}
-
-				<a href="{Permalink}" class="Number-date">{TimeAgo}</a>	
-				
-				{block:PermalinkPage}
 					
-					{block:ContentSource}
-						<div class="Source">
-							<a href="{SourceURL}">{lang:Source} : {block:NoSourceLogo}{SourceTitle}{/block:NoSourceLogo}{block:SourceLogo}<img src="{BlackLogoURL}" width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />{/block:SourceLogo}</a>
-						</div>
-					{/block:ContentSource}
-
-					{block:HasTags}
-
-						<ul class="Tags">
-							{block:Tags}<li><a href="{TagURL}">{Tag}</a></li>{/block:Tags}
-						</ul>
-
-					{/block:HasTags}
-
-					{block:PostNotes}
-						<div class="Notes">
-							{PostNotes}
-						</div>
-					{/block:PostNotes}	
+					{block:PermalinkPage}
 					
+					<!-- Begin Permalink Page Footer -->
+					
+					<div class="Permalink__Content">
+						
+						<div class="Post__Footer__Permalink__Wrapper">
+						
+							{block:ContentSource}
 
-				{/block:PermalinkPage}
+								<div class="Post__Source">
 
-			</footer>
-		{/block:Date}
+									<div class="Post__Source__Wrapper">
+										
+										<a class="Post__Source__Anchor" href="{SourceURL}">
+
+											<div class="Post__Source__Title">
+												
+												{lang:Source} : {block:NoSourceLogo}{SourceTitle}{/block:NoSourceLogo}
+
+											</div>
+												
+
+											{block:SourceLogo}
+
+												<div class="Post__Source__Media">
+												
+													<img class="Post__Source__Image" src="{BlackLogoURL}" width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
+
+												</div>
+											
+											{/block:SourceLogo}
+
+										</a>
+
+									</div>	
+
+								</div>
+
+							{/block:ContentSource}
+
+							{block:HasTags}
+
+								<div class="Post__Tags">
+									
+									<div class="Post__Tags__Wrapper">
+										
+										<ul class="Post__Tags__List">
+
+											{block:Tags}
+
+												<li class="Post__Tags__Item">
+
+													<a class="Post__Tags__Item__Anchor" href="{TagURL}">{Tag}</a>
+											
+												</li>
+
+											{/block:Tags}
+
+										</ul>
+
+									</div>
+
+								</div>
+
+							{/block:HasTags}
+
+							{block:PostNotes}
+
+								<div class="Post__Notes">
+
+									<div class="Post__Notes__Wrapper">
+										
+										{PostNotes}
+
+									</div>
+
+								</div>
+
+							{/block:PostNotes}
+
+						</div>
+
+					</div>	
+
+					<!-- End Permalink Page -->
+					{/block:PermalinkPage}
+
+				</footer>
+
+				<!-- End Footer -->
+
+			{/block:Date}
+			
+			</div>
+
+			<!-- End Post -->
+		
 		</article>
-	{/block:Posts}
-	{block:Pagination}
-	    <nav id="pagination">
-	        <ul>
-	            {block:NextPage}<li><a href="{NextPage}">Next page</a></li>{/block:NextPage}
-	            {block:PreviousPage}<li><a href="{PreviousPage}">Previous page</a></li>{/block:PreviousPage}
-	        </ul>
-	    </nav>
-	{/block:Pagination}
 
+		<!-- End Blog Post -->
+	
+	{/block:Posts}
+	
 </div>
+
+<!-- End Posts Wrapper -->
+
+{block:Pagination}
+
+	<div class="Blog__Navigation__Wrapper">
+		
+		<nav class="Blog__Pagination">
+	        
+	        <ul class="Blog__Pagination__List">
+
+	            {block:NextPage}
+
+	            	<li class="Blog__Pagination__Item Blog__Pagination__Item--Next">
+
+	           			<a class="Blog__Pagination__Item__Anchor Blog__Pagination__Item__Anchor--Next" href="{NextPage}">
+
+	           					Next page
+
+	           			</a>
+
+	    			</li>
+
+	        	{/block:NextPage}
+
+
+	            {block:PreviousPage}
+
+	            	<li class="Blog__Pagination__Item Blog__Pagination__Item--Previous">
+
+	            		<a class="Blog__Pagination__Item__Anchor Blog__Pagination__Item__Anchor--Previous" href="{PreviousPage}">
+
+	            			Previous page
+
+	            		</a>
+
+	            	</li>
+
+	            {/block:PreviousPage}
+	        
+	        </ul>
+
+	    </nav>
+
+	</div>
+
+{/block:Pagination}
+
 
 
 
