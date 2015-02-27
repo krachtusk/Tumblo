@@ -15,6 +15,8 @@
 	<link rel="alternate" type="application/rss+xml" tile="{Title} RSS" href="{RSS}" />
 	<link rel="stylesheet" href="http://static.tumblr.com/hznqxps/ivOmgjf8v/normalize.css" />
 
+	<meta name="if:Infinite Scrolling" content="0" />
+
 	<style>
 
 	/* This blog is built following the BEM methodology. Find out more here:
@@ -32,6 +34,17 @@
 	/*End of Custom CSS */
 	</style>
 	
+	{block:IfInfiniteScrolling}
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script type="text/javascript" src="http://codysherman.tumblr.com/tools/infinite-scrolling/code"></script>
+		<style>
+		
+		.Blog__Navigation__Wrapper {
+			display:none;
+		}
+
+		</style>	
+	{block:IfInfiniteScrolling}	
 </head>
 <body>
 
@@ -143,6 +156,7 @@
 
 <div class="Blog__Posts__Wrapper">
 
+	<div class="autopagerize_page_element">
 	{block:Posts}
 
 		<!-- Begin Blog Post -->
@@ -660,6 +674,7 @@
 		<!-- End Blog Post -->
 	
 	{/block:Posts}
+	</div>
 	
 </div>
 
