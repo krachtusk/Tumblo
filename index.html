@@ -16,6 +16,8 @@
 	<link rel="stylesheet" href="http://static.tumblr.com/hznqxps/ivOmgjf8v/normalize.css" />
 
 	<meta name="if:Infinite Scrolling" content="0" />
+	<meta name="text:Google Analytics ID" content="" />
+	<meta name="text:Disqus shortname" content="" />
 
 	<style>
 
@@ -638,6 +640,33 @@
 
 							{/block:HasTags}
 
+							{block:IfDisqusShortname}
+
+								<script type="text/javascript">var disqus_url = "{Permalink}"; var disqus_title ="{block:PostTitle}{PostTitle}{/block:PostTitle}";</script>{block:Permalink}<div id="disqus_thread"></div>
+
+								<script type="text/javascript">
+								  (function() {
+								   var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+								   dsq.src = 'http://{text:Disqus Shortname}.disqus.com/embed.js';
+								   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+								  })();
+								</script>
+								
+								<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript={text:Disqus Shortname}">comments powered by Disqus.</a></noscript>
+								{lang:Blog comments powered by Disqus 2}
+								{/block:Permalink}
+
+								<script type="text/javascript">
+								var disqus_shortname = '{text:Disqus Shortname}';
+								(function () {
+								  var s = document.createElement('script'); s.async = true;
+								  s.src = 'http://{text:Disqus Shortname}.disqus.com/count.js';
+								  (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+								}());
+								</script>
+
+							{/block:IfDisqusShortname}
+
 							{block:PostNotes}
 
 								<div class="Post__Notes">
@@ -727,6 +756,13 @@
 
 
 
-
+{block:IfGoogleAnalyticsID}
+<script>
+var _gaq=[['_setAccount','{text:Google Analytics ID}'],['_trackPageview']];
+(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
+{/block:IfGoogleAnalyticsID}
 </body>
 </html>
