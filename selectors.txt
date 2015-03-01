@@ -2,7 +2,7 @@
 
 .Post__Video__Media iframe : Style the Videos.
 
-.Post__Photoset__Img:nth-child() : Style the photoset photos.
+.Post__Photoset__Img:nth-child(n) : Style the photoset photos.
 
 .Post_Photoset__Caption p,
 .Post_Photoset__Caption blockquote : Style the photoset Caption.

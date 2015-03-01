@@ -34,6 +34,8 @@
 	{CustomCSS}
 
 	/*End of Custom CSS */
+
+
 	</style>
 	
 	{block:IfInfiniteScrolling}
@@ -79,7 +81,11 @@
 
 			<div class="Blog__Header__Description__Wrapper">
 
-				<p class="Blog__Header__Description__Text">{Description}</p>
+				<p class="Blog__Header__Description__Text">
+
+					{Description}
+
+				</p>
 
 			</div>
 
@@ -225,6 +231,7 @@
 			
 			{/block:Photo}
 
+
 			{block:Photoset}
 
 			<!-- Begin Photoset Post -->
@@ -235,11 +242,7 @@
 
 					{block:Photos}
             			
-            			<a class="Post__Photoset__Img__Anchor" href="{Permalink}">
-
             				<img class="Post__Photoset__Img" src="{PhotoURL-HighRes}">
-
-            			</a>
 						
         			{/block:Photos}
 
@@ -303,7 +306,7 @@
 					
 					<h2 class="Post__Link__Title">
 
-						<a class="Post__Link__Anchor" href="{URL}">
+						<a class="Post__Link__Title__Anchor" href="{URL}">
 
 							{Name}
 
@@ -405,16 +408,16 @@
 						</div>
 
 					{/block:TrackName}
+
+					{block:AlbumArt}
 					
-					<div class="Post__Audio__Album-Art">
-							
-						{block:AlbumArt}
+						<div class="Post__Audio__Album-Art">
 
-							<img class="Post__Audio__Album-Art__Image" src="{AlbumArtUrl}" />
+								<img class="Post__Audio__Album-Art__Image" src="{AlbumArtUrl}" />
 
-						{block:AlbumArt}
+						</div>
 
-					</div>
+					{/block:AlbumArt}
 
 					<div class="Post__Audio__Audio-Player">
 							
@@ -534,13 +537,13 @@
 						
 						<div class="Post__Footer__Buttons">
 							
-							<div class="Post__Footer__Like">
+							<div class="Post__Footer__Buttons__Like">
 
 								{LikeButton}
 
 							</div>
 
-							<div class="Post__Footer__Reblog">
+							<div class="Post__Footer__Buttons__Reblog">
 
 								{ReblogButton}
 
@@ -651,7 +654,7 @@
 								   (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 								  })();
 								</script>
-								
+
 								<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript={text:Disqus Shortname}">comments powered by Disqus.</a></noscript>
 								{lang:Blog comments powered by Disqus 2}
 								{/block:Permalink}
