@@ -53,21 +53,21 @@
 <body>
 
 <!-- Begin Blog Header -->
-<header class="Blog__Header">
+<header class="header">
 
-	<div class="Blog__Header__Container">
+	<div class="header__container">
 
-		<div class="Blog__Header__Portrait__Wrapper">
+		<div class="header__portrait__wrapper">
 			
-			<img class="Blog__Header__Portrait__Img" src="{PortraitURL-128}" />
+			<img class="header__portrait__img" src="{PortraitURL-128}" />
 
 		</div>
 
-		<div class="Blog__Header__Title__Wrapper">
+		<div class="header__title__wrapper">
 			
-			<h1 class="Blog__Header__Title">
+			<h1 class="header__title">
 
-				<a class="Blog__Header__Link" href="/" title="{lang:Home}">
+				<a class="header__title__link" href="/" title="{lang:Home}">
 			
 					{Title}
 
@@ -79,9 +79,9 @@
 
 		{block:Description}
 
-			<div class="Blog__Header__Description__Wrapper">
+			<div class="header__description">
 
-				<p class="Blog__Header__Description__Text">
+				<p class="header__description__text">
 
 					{Description}
 
@@ -100,19 +100,19 @@
 
 <!-- Begin Blog Menu -->
 
-<aside class="Blog__Menu">
+<aside class="menu">
 
-	<nav class="Blog__Menu__Nav">
+	<nav class="menu__nav">
 
-		<ul class="Blog__Menu__Nav__List">
+		<ul class="menu__nav__list">
 
 			{block:HasPages}
 
 				{block:Pages}
 
-					<li class="Blog__Menu__Nav__Item">
+					<li class="nav__list__item">
 
-						<a class="Blog__Menu__Nav__Item_Anchor" href="{URL}">
+						<a class="list__item__anchor" href="{URL}">
 
 							{Label}
 
@@ -126,9 +126,9 @@
 
 			{block:SubmissionsEnabled}
 
-		    	<li class="Blog__Menu__Nav__Item Blog__Menu__Nav__Item--Submit">
+		    	<li class="nav__list__item nav__list__item--submit">
 
-		    		<a class="Blog__Menu__Nav__Item_Anchor" href="/submit">
+		    		<a class="list__item__anchor" href="/submit">
 
 		    			{SubmitLabel}
 
@@ -140,9 +140,9 @@
 
 			{block:AskEnabled}
 
-				<li class="Blog__Menu__Nav__Item Blog__Menu__Nav__Item--Ask">
+				<li class="nav__list__item nav__list__item--ask">
 
-					<a class="Blog__Menu__Nav__Item_Anchor" href="/ask">
+					<a class="list__item__anchor" href="/ask">
 
 						{AskLabel}
 
@@ -162,33 +162,33 @@
 
 <!-- Begin Posts Wrapper -->
 
-<div class="Blog__Posts__Wrapper">
+<main class="posts__wrapper">
 
 	<div class="autopagerize_page_element">
 	{block:Posts}
 
 		<!-- Begin Blog Post -->
-		<article class="Post">
+		<article class="post">
 			
 			{block:Text}
 
 			<!-- Begin Text Post -->
 
-			<div class="Post__Text">
+			<div class="post__text">
 				
-				<div class="Post__Text__Wrapper">
+				<div class="post__text__wrapper">
 					
 					{block:Title}
 
-						<h2 class="Post__Text__Title">
+						<h2 class="post__text__title">
 
-							<a class="Post__Text__Title__Anchor" href="{Permalink}">{Title}</a>
+							<a class="text__title__anchor" href="{Permalink}">{Title}</a>
 							
 						</h2>
 					
 					{/block:Title}
 				
-					<div class="Post__Text__Body">
+					<div class="post__text__body">
 						
 						{Body}
 
@@ -202,13 +202,13 @@
 
 			<!-- Begin Photo Post -->
 
-			<div class="Post__Photo">
+			<div class="post__photo">
 				
-				<div class="Post__Photo__Media">
+				<div class="post__photo__media">
 
 					{LinkOpenTag}
 						
-						<img class="Post__Photo__Media__Img" src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
+						<img class="photo__media__img" src="{PhotoURL-HighRes}" alt="{PhotoAlt}" />
 
 
 					{LinkCloseTag}
@@ -217,9 +217,9 @@
 
 				{block:Caption}
 
-					<div class="Post__Photo__Wrapper">
+					<div class="post__photo__wrapper">
 						
-						<div class="Post__Photo__Caption">
+						<div class="post__photo__caption">
 
 							{Caption}
 					
@@ -236,13 +236,13 @@
 
 			<!-- Begin Photoset Post -->
 
-			<div class="Post__Photoset">
+			<div class="post__photoset">
 
-				<div class="Post__Photoset__Media">
+				<div class="post__photoset__media">
 
 					{block:Photos}
             			
-            				<img class="Post__Photoset__Img" src="{PhotoURL-HighRes}">
+            				<img class="post__photoset__img" src="{PhotoURL-HighRes}">
 						
         			{/block:Photos}
 
@@ -250,9 +250,9 @@
 
 				{block:Caption} 
 
-					<div class="Post__Photoset__Wrapper">
+					<div class="post__photoset__wrapper">
 
-						<div class="Post_Photoset__Caption">
+						<div class="post_photoset__caption">
 							
 							{Caption}
 
@@ -268,11 +268,11 @@
 
 			<!-- Begin Quote Post -->
 
-			<div class="Post__Quote">
+			<div class="post__quote">
 
-				<div class="Post__Quote__Wrapper">
+				<div class="post__quote__wrapper">
 					
-					<blockquote class="Post__Quote__Blockquote">
+					<blockquote class="post__quote__blockquote">
 
 						{Quote}
 
@@ -280,9 +280,9 @@
 
 					{block:Source}
 
-						<div class="Post__Quote__Source">
+						<div class="post__quote__source">
 
-							<cite class="Post__Quote__Source__Cite"> 
+							<cite class="quote__source__cite"> 
 
 								{Source} 
 
@@ -300,13 +300,13 @@
 
 			<!-- Begin Link Post -->
 
-			<div class="Post__Link">
+			<div class="post__link">
 
-				<div class="Post__Link__Wrapper">
+				<div class="post__link__wrapper">
 					
-					<h2 class="Post__Link__Title">
+					<h2 class="post__link__title">
 
-						<a class="Post__Link__Title__Anchor" href="{URL}">
+						<a class="link__title__anchor" href="{URL}">
 
 							{Name}
 
@@ -316,7 +316,7 @@
 
 					{block:Description} 
 
-						<div class="Post__Link__Description">
+						<div class="post__link__description">
 
 							{Description}
 
@@ -332,13 +332,13 @@
 
 			<!-- Begin Chat Post -->
 
-			<div class="Post__Chat">
+			<div class="post__chat">
 
-				<div class="Post__Chat__Wrapper">
+				<div class="post__chat__wrapper">
 
-					<h2 class="Post__Chat__Title">
+					<h2 class="post__chat__title">
 						
-						<a class="Post__Chat__Title__Anchor" href="{Permalink}">
+						<a class="chat__title__anchor" href="{Permalink}">
 
 							{Title}
 
@@ -346,17 +346,17 @@
 
 					</h2>
 					
-					<ul class="Post__Chat__List">
+					<ul class="post__chat__list">
 						
 						{block:Lines}
 
-							<li class="{Alt} Post__Chat__List__Item">
+							<li class="{Alt} chat__list__item">
 
-								<p class="Post__Chat__List__Text">
+								<p class="chat__list__text">
 									
 									{block:Label}
 									
-										<strong class="Post__Chat__List__Label">
+										<strong class="chat__list__label">
 
 											{Label}
 										
@@ -364,7 +364,7 @@
 									
 									{/block:Label} 
 									
-									<span class="Post__Chat__List__Line">
+									<span class="chat__list__line">
 
 										{Line}
 
@@ -386,18 +386,18 @@
 
 			<!-- Begin Audio Post -->
 
-			<div class="Post__Audio">
+			<div class="post__audio">
 
 
-				<div class="Post__Audio__Media">
+				<div class="post__audio__media">
 
 					{block:TrackName}
 
-						<div class="Post__Audio__Track-Name">
+						<div class="post__audio__track-name">
 								
-							<h2 class="Post__Audio__Title">
+							<h2 class="post__audio__title">
 
-								<a class="Post__Audio__Anchor" href="{Permalink}">
+								<a class="post__audio__anchor" href="{Permalink}">
 
 									{TrackName}
 									
@@ -411,15 +411,15 @@
 
 					{block:AlbumArt}
 					
-						<div class="Post__Audio__Album-Art">
+						<div class="post__audio__album-art">
 
-								<img class="Post__Audio__Album-Art__Image" src="{AlbumArtUrl}" />
+								<img class="post__audio__album-art__image" src="{AlbumArtUrl}" />
 
 						</div>
 
 					{/block:AlbumArt}
 
-					<div class="Post__Audio__Audio-Player">
+					<div class="post__audio__audio-player">
 							
 						{AudioPlayerBlack}
 						<!-- {AudioPlayerWhite} -->
@@ -429,11 +429,11 @@
 
 				</div>
 
-				<div class="Post__Audio__Wrapper">
+				<div class="post__audio__wrapper">
 					
 					{block:Caption} 
 
-						<div class="Post__Audio__Caption">
+						<div class="post__audio__caption">
 
 							{Caption} 
 							
@@ -449,20 +449,20 @@
 
 			<!-- Begin Video Post -->
 
-			<div class="Post__Video">
+			<div class="post__video">
 
-				<div class="Post__Video__Media">
+				<div class="post__video__media">
 
 					{Video-700}
 
 				</div>
 					
 
-				<div class="Post__Video__Wrapper">
+				<div class="post__video__wrapper">
 						
 					{block:Caption}
 							
-						<div class="Post__Video__Caption">
+						<div class="post__video__caption">
 							
 								{Caption}
 
@@ -478,31 +478,27 @@
 
 			<!-- Begin Answer Post -->
 
-			<div class="Post__Ask">
+			<div class="post__ask">
 
-				<div class="Post__Ask__Wrapper">
+				<div class="post__ask__wrapper">
 						
-					<div class="Post__Ask__Question__Wrapper">
+					<div class="ask__question__wrapper">
 						
-						<p class="Post__Ask__Question__Text">
+						<p class="ask__question__text">
 								
 							{Question}
 
 						</p>
 
-					</div>
+						<div class="ask__answer__portrait">
 
-					<div class="Post__Ask__Answer__Wrapper">
-							
-						<div class="Post__Ask__Answer__Portrait">
-
-							<img class="Post__Ask__Answer__Portrait__Image" src="{AskerPortraitURL-96}" />
+							<img class="answer__portrait__image" src="{AskerPortraitURL-96}" />
 
 						</div>
 
-						<div class="Post__Ask__Answer__User">
+						<div class="ask__answer__user">
 								
-							<p class="Post__Ask__Answer__User__Text">
+							<p class="ask__answer__user__text">
 
 								{Asker}
 
@@ -510,17 +506,19 @@
 
 						</div>
 
-							<div class="Post__Ask__Answer__Response">
-								
-										{Answer}
-
-							</div>
-						
-						</div>
-
-						
-
 					</div>
+
+					<div class="ask__answer__wrapper">
+
+						<div class="ask__answer__response">
+								
+									{Answer}
+
+						</div>
+						
+					</div>
+
+				</div>
 
 			{/block:Answer}
 
@@ -529,21 +527,21 @@
 
 				<!-- Begin Footer -->
 
-				<footer class="Post__Footer">
+				<footer class="post__footer">
 
 					<!-- Begin Home Page Footer -->
 					
-					<div class="Post__Footer__Wrapper">
+					<div class="post__footer__wrapper">
 						
-						<div class="Post__Footer__Buttons">
+						<div class="post__footer__buttons">
 							
-							<div class="Post__Footer__Buttons__Like">
+							<div class="footer__buttons__like">
 
 								{LikeButton}
 
 							</div>
 
-							<div class="Post__Footer__Buttons__Reblog">
+							<div class="footer__buttons__reblog">
 
 								{ReblogButton}
 
@@ -551,11 +549,11 @@
 
 						</div>
 
-						<div class="Post__Footer__Notes-and-Date">
+						<div class="post__footer__notes-and-date">
 							
 							{block:NoteCount}
 							
-								<a href="{Permalink}" class="Post__Footer__Notes-and-Date__Notes-Anchor">
+								<a href="{Permalink}" class="notes-and-date__notes-anchor">
 
 								 {NoteCountWithLabel} 
 
@@ -563,7 +561,7 @@
 
 							{/block:NoteCount}
 
-							<a href="{Permalink}" class="Post__Footer__Notes-and-Date__Date-Anchor">
+							<a href="{Permalink}" class="notes-and-date__date-anchor">
 
 								{TimeAgo}
 
@@ -580,19 +578,19 @@
 					
 					<!-- Begin Permalink Page Footer -->
 					
-					<div class="Permalink__Content">
+					<div class="permalink__content">
 						
-						<div class="Post__Footer__Permalink__Wrapper">
+						<div class="footer__permalink__wrapper">
 						
 							{block:ContentSource}
 
-								<div class="Post__Source">
+								<div class="post__source">
 
-									<div class="Post__Source__Wrapper">
+									<div class="post__source__wrapper">
 										
-										<a class="Post__Source__Anchor" href="{SourceURL}">
+										<a class="post__source__anchor" href="{SourceURL}">
 
-											<div class="Post__Source__Title">
+											<div class="post__source__title">
 												
 												{lang:Source} : {block:NoSourceLogo}{SourceTitle}{/block:NoSourceLogo}
 
@@ -601,9 +599,9 @@
 
 											{block:SourceLogo}
 
-												<div class="Post__Source__Media">
+												<div class="post__source__media">
 												
-													<img class="Post__Source__Image" src="{BlackLogoURL}" width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
+													<img class="post__source__image" src="{BlackLogoURL}" width="{LogoWidth}" height="{LogoHeight}" alt="{SourceTitle}" />
 
 												</div>
 											
@@ -619,17 +617,17 @@
 
 							{block:HasTags}
 
-								<div class="Post__Tags">
+								<div class="post__tags">
 									
-									<div class="Post__Tags__Wrapper">
+									<div class="post__tags__wrapper">
 										
-										<ul class="Post__Tags__List">
+										<ul class="post__tags__list">
 
 											{block:Tags}
 
-												<li class="Post__Tags__Item">
+												<li class="post__tags__item">
 
-													<a class="Post__Tags__Item__Anchor" href="{TagURL}">{Tag}</a>
+													<a class="tags__item__anchor" href="{TagURL}">{Tag}</a>
 											
 												</li>
 
@@ -655,7 +653,7 @@
 								  })();
 								</script>
 
-								<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript={text:Disqus Shortname}">comments powered by Disqus.</a></noscript>
+								<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript={text:Disqus Shortname}"></a></noscript>
 								{lang:Blog comments powered by Disqus 2}
 								{/block:Permalink}
 
@@ -672,9 +670,9 @@
 
 							{block:PostNotes}
 
-								<div class="Post__Notes">
+								<div class="post__notes">
 
-									<div class="Post__Notes__Wrapper">
+									<div class="post__notes__wrapper">
 										
 										{PostNotes}
 
@@ -708,38 +706,24 @@
 	{/block:Posts}
 	</div>
 	
-</div>
+</main>
 
 <!-- End Posts Wrapper -->
 
 {block:Pagination}
 
-	<div class="Blog__Navigation__Wrapper">
+	<div class="navigation__wrapper">
 		
-		<nav class="Blog__Pagination">
+		<nav class="navigation__pagination">
 	        
-	        <ul class="Blog__Pagination__List">
+	        <ul class="navigation__pagination__list">
 
-	            {block:NextPage}
+	            
+				{block:PreviousPage}
 
-	            	<li class="Blog__Pagination__Item Blog__Pagination__Item--Next">
+	            	<li class="pagination__list__item pagination__list__item--previous">
 
-	           			<a class="Blog__Pagination__Item__Anchor Blog__Pagination__Item__Anchor--Next" href="{NextPage}">
-
-	           					Next page
-
-	           			</a>
-
-	    			</li>
-
-	        	{/block:NextPage}
-
-
-	            {block:PreviousPage}
-
-	            	<li class="Blog__Pagination__Item Blog__Pagination__Item--Previous">
-
-	            		<a class="Blog__Pagination__Item__Anchor Blog__Pagination__Item__Anchor--Previous" href="{PreviousPage}">
+	            		<a class="list__item__anchor list__item__anchor--previous" href="{PreviousPage}">
 
 	            			Previous page
 
@@ -748,6 +732,27 @@
 	            	</li>
 
 	            {/block:PreviousPage}
+
+
+					<li class="pagination__list__item pagination__list__item--count">
+						                
+                    	Page {CurrentPage} of {TotalPages}
+    
+					</li>
+
+	            {block:NextPage}
+
+	            	<li class="pagination__list__item pagination__list__item--next">
+
+	           			<a class="list__item__anchor list__item__anchor--next" href="{NextPage}">
+
+	           					Next page
+
+	           			</a>
+
+	    			</li>
+
+	        	{/block:NextPage}
 	        
 	        </ul>
 
