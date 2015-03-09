@@ -465,6 +465,10 @@
 	/* Navigation Styles */
 
 	.navigation__wrapper {
+		
+	{block:IfInfiniteScrolling}
+		display:none;
+	{block:IfInfiniteScrolling}
 
 	}
 		
@@ -499,20 +503,12 @@
 				.pagination__list__item--next {
 					
 				}
-				
-
 
 	/* Custom CSS */
 
 	{CustomCSS}
 
 	/*End of Custom CSS */
-		
-	{block:IfInfiniteScrolling}
-		.navigation__wrapper {
-			display:none;
-		}
-	{block:IfInfiniteScrolling}
 
 	</style>	
 </head>
