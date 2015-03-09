@@ -469,7 +469,6 @@
 	{block:IfInfiniteScrolling}
 		display:none;
 	{block:IfInfiniteScrolling}
-
 	}
 		
 		.navigation__pagination {
@@ -1234,7 +1233,12 @@ g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js
 s.parentNode.insertBefore(g,s)}(document,'script'));
 </script>
 {/block:IfGoogleAnalyticsID}
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+{block:IfInfiniteScrolling}
 <script type="text/javascript" src="http://codysherman.tumblr.com/tools/infinite-scrolling/code"></script>
+{/block:IfInfiniteScrolling}
+
 </body>
 </html>
